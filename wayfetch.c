@@ -6,6 +6,7 @@
 #include "config.h"
 #include <dirent.h>
 
+#include "color.h"
 
 struct utsname u;
 struct sysinfo sys;
