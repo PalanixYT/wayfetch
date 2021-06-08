@@ -1,4 +1,4 @@
-#include "artix.h"
+#include "logos/artix.h"
 #define PACDIR "/var/lib/pacman/local" // here are all packages incase of pacman
 char info[ROWS][150];
 
