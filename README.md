@@ -11,7 +11,6 @@ Multicolor Logos are a bit harder to do, see mint.h as an example. It's best to 
 
 Displaying package count currently only works with Pacman
 
-<<<<<<< HEAD
 Example:
 ![example output](logos/example.png)
 
