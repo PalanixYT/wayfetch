@@ -1,4 +1,4 @@
-#include "logos/artix.h"
+#include "logos/tux.h"
 //here you can define which logo wayfetch is going to use. See logos folder for available options
 #define PACDIR "/var/lib/pacman/local" // here are all packages incase of pacman
 char info[ROWS][150];
