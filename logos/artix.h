@@ -1,4 +1,4 @@
-#include "color.h"
+#include "../color.h"
 #define COLOR CYAN
 #define ROWS 20
 char *logo[] = {
