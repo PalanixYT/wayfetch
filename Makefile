@@ -11,8 +11,8 @@ uninstall:
 
 .PHONY: all clean install uninstall
 
-config: | config.pre.h
+config.h: | config.pre.h
 	cp config.pre.h $@
 
-wayfetch: wayfetch.c
+wayfetch: wayfetch.c config.h
 	gcc -o wayfetch wayfetch.c
