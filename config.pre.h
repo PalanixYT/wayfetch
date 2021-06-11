@@ -15,12 +15,18 @@ void order() {
 		os();
 		host();
 		kernel();
+		spacing();
+		spacing();
 		get_up();
 		get_shell();
 		get_term();
+		get_packages();
+		spacing();
+		spacing();
 		get_cpu();
 		get_memory();
-		get_packages();
+		spacing();
+		spacing();
 		get_colors(); //this is to make sure the colors are at the end
 		get_colors2();
 }
