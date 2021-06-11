@@ -3,69 +3,78 @@
 #include <sys/sysinfo.h>
 #include <string.h>
 #include <stdlib.h>
+#define COLOR CYAN
+#define NAMECOLOR COLOR
 #include "config.h"
 #include <dirent.h>
 
 #include "color.h"
 
+
 struct utsname u;
 struct sysinfo sys;
 
+int i;
 
-void os(char p[]) {
+void os() {
 		FILE *os = fopen("/etc/os-release","r");
 		char buffer[150];
 		fscanf(os, "NAME=\"%[^\"]+", buffer);
-		snprintf(p, 149, COLOR"OS: "CLOSE"%s %s", buffer, u.machine);
+		snprintf(info[i], 149, COLOR"OS: "CLOSE"%s %s", buffer, u.machine);
 		fclose(os);
+		i += 1;
 }
 
-void host(char c[]) {
+void host() {
 		FILE *host = fopen("/sys/devices/virtual/dmi/id/product_name", "r");
 		char buffer[150];
 		fscanf(host, "%s", buffer);
-		snprintf( c, 149, COLOR"Host: "CLOSE"%s", buffer);
+		snprintf( info[i], 149, COLOR"Host: "CLOSE"%s", buffer);
 		fclose(host);
-
-
 }
 
-void hname(char n[], char t[]) {
+void hname() {
 		char h[50];
 		char buffer[100];
 		gethostname(h);
 		getlogin_r(buffer);
-		snprintf(n, 149, COLOR"%s"CLOSE"@"COLOR"%s"CLOSE, buffer, h);
-				snprintf(t, strlen(n) +1 - 2*strlen(CLOSE) - 2*strlen(COLOR), "%s", "-----------------------------------------------------------------------------");
+		snprintf(info[i], 149, NAMECOLOR"%s"CLOSE"@"NAMECOLOR"%s"CLOSE, buffer, h);
+				snprintf(info[i+1], strlen(info[i]) +1 - 2*strlen(CLOSE) - 2*strlen(COLOR), "%s", "-----------------------------------------------------------------------------");
+		i += 2;
 
 }
 
-void kernel(char y[]) {
-		snprintf(y, 149, COLOR"Kernel: "CLOSE"%s", u.release);
+void kernel() {
+		snprintf(info[i], 149, COLOR"Kernel: "CLOSE"%s", u.release);
+		i += 1;
 }
 
-void get_up(char e[]) {
+void get_up() {
 		float mins = sys.uptime / 60;
 		if((int) (mins / 60) == 0) {
-				snprintf(e, 149, COLOR"Uptime: "CLOSE"%d mins", (int)mins % 60);
+				snprintf(info[i], 149, COLOR"Uptime: "CLOSE"%d mins", (int)mins % 60);
 		} else {
-		snprintf(e, 149, COLOR"Uptime: "CLOSE"%d hours, %d mins", (int)(mins / 60), (int)mins % 60);
+		snprintf(info[i], 149, COLOR"Uptime: "CLOSE"%d hours, %d mins", (int)(mins / 60), (int)mins % 60);
 		}
+		i += 1;
 }
 
-void get_shell(char s[]) {
-		snprintf(s, 149, COLOR"Shell: "CLOSE"%s", strrchr(getenv("SHELL"), '/') + 1);
+void get_shell() {
+		snprintf(info[i], 149, COLOR"Shell: "CLOSE"%s", strrchr(getenv("SHELL"), '/') + 1);
+		i += 1;
 }
 
-void spacing(char m[]) {
-		strcpy(m,"");
+void spacing() {
+		strcpy(info[i],"");
+		i += 1;
 }
 
-void get_term(char b[]) {
-		snprintf(b, 149, COLOR"Terminal: "CLOSE"%s", getenv("TERM"));
+void get_term() {
+		snprintf(info[i], 149, COLOR"Terminal: "CLOSE"%s", getenv("TERM"));
+		i += 1;
 }
 
-void get_cpu(char r[]) {
+void get_cpu() {
     FILE *cpuinfo = fopen("/proc/cpuinfo", "r"); /* read from cpu info */
 
     char *cpu_model = malloc(75);
@@ -120,11 +129,12 @@ cpufreq_fallback:
 
 
 
-		snprintf(r, 150, COLOR"CPU: "CLOSE"%s (%d) @ %.*f%s", cpu_model, num_cores, prec, freq, freq_unit);
+		snprintf(info[i], 150, COLOR"CPU: "CLOSE"%s (%d) @ %.*f%s", cpu_model, num_cores, prec, freq, freq_unit);
     free(cpu_model);
+	i += 1;
 }
 
-void get_memory(char g[]) {
+void get_memory() {
 		FILE *mem = fopen("/proc/meminfo","r");
 		char *line = NULL;
 		size_t len;
@@ -148,29 +158,32 @@ void get_memory(char g[]) {
 		total_memory = total / 1024;
 		int percentage = (int) (100 * (used_memory / (double) total_memory));
 
-		snprintf( g, 149, COLOR"Memory: "CLOSE"%dMiB / %dMiB (%d%%)", used_memory, total_memory, percentage);
+		snprintf( info[i], 149, COLOR"Memory: "CLOSE"%dMiB / %dMiB (%d%%)", used_memory, total_memory, percentage);
+		i += 1;
 
 }
 
-void get_colors(char d[]) {
-    char *s = d;
+void get_colors() {
+    char *s = info[i];
 
     for(int i = 0; i < 8; i++) {
         sprintf(s, "\e[4%dm   ", i);
         s += 8;
     }
     snprintf(s, 5, "\e[0m");
+	i += 1;
 }
 
-void get_colors2(char x[]) {
-		char *s = x;
+void get_colors2() {
+		char *s = info[i];
     for(int i = 8; i < 16; i++) {
         sprintf(s, "\e[48;5;%dm   ", i);
         s += 12 + (i >= 10 ? 1 : 0);
     }
     snprintf(s, 5, "\e[0m");
+	i += 1;
 }
-void get_packages(char p[]) {
+void get_packages() {
     int num_packages = 0;
     DIR * dirp;
     struct dirent *entry;
@@ -188,12 +201,12 @@ void get_packages(char p[]) {
 
     closedir(dirp);
 
-    snprintf(p, 150, COLOR"Packages: "CLOSE"%d", num_packages);
+    snprintf(info[i], 150, COLOR"Packages: "CLOSE"%d", num_packages);
+	i += 1;
 }
 int main() {
 		uname(&u);
 		sysinfo(&sys);
-		hname(info[0], info[1]);
 		order();
 
 		for(int j = 0; j < ROWS; j++) {

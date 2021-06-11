@@ -11,15 +11,16 @@ char info[ROWS][150];
 //here comes the order of elements
 // info[0] and info[1] are reserved for the title and bar
 void order() {
-		os(							info[2]			);
-		host(						info[3]			);
-		kernel(						info[4]			);
-		get_up(						info[7]			);
-		get_shell(					info[8]			);
-		get_term(					info[9]			);
-		get_cpu(					info[13]			);
-		get_memory(					info[14]		);
-		get_packages(				info[10]		);
-		get_colors(					info[ROWS-3]		); //this is to make sure the colors are at the end
-		get_colors2(				info[ROWS-2]		);
+		hname();
+		os();
+		host();
+		kernel();
+		get_up();
+		get_shell();
+		get_term();
+		get_cpu();
+		get_memory();
+		get_packages();
+		get_colors(); //this is to make sure the colors are at the end
+		get_colors2();
 }
