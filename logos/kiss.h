@@ -5,7 +5,7 @@
 //colors are defined in color.h
 #define NAMECOLOR BLUE
 //this is only needed when the name is supposed to be in a different color, like with kiss linux
-#define ROWS 19
+#define ROWS 7
 //the programm only prints as many lines as defined in ROWS
 
 char *logo[] = {
