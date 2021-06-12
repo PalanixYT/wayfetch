@@ -27,9 +27,3 @@ Using hyperfine neofetch uses 140ms and wayfetch 1ms
 
 
 Criticism is encouraged. 
-
-Problems:
----------
-
-If ROWS is smaller than the amount of info lines, they won't print. If ROWS has more lines than
-the logo, then you will see (null) printed. I have to find out a way to fix that.
