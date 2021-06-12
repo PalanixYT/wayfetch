@@ -2,7 +2,7 @@
 #include "../color.h"
 // this is only needed when using multi color logos
 #define COLOR CYAN
-#define NAMECOLOR BLUE
+#define NAMECOLOR COLOR
 //this is only needed when the name is supposed to be in a different color, like with kiss linux
 #define ROWS 19
 
