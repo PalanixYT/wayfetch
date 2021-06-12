@@ -28,6 +28,6 @@ void order() {
 		get_memory();
 		spacing();
 		spacing();
-		get_colors(); //this is to make sure the colors are at the end
+		get_colors();
 		get_colors2();
 }
