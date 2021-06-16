@@ -213,7 +213,7 @@ int main() {
 		uname(&u);
 		sysinfo(&sys);
 		order();
-		spacing();
+		printf("\n");
 		int j = 0;
 		for(; j < ROWS && j < i; j++) {
 				printf(COLOR "%s   " CLOSE , logo[j]);
