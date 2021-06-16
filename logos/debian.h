@@ -8,7 +8,7 @@
 //ALWAYS, and I mean ALWAYS exclude the last line of the logo, see the end of the file for more info
 
 char *logo[] = {
-	WHITE"       _,met$$$$$gg.       "CLOSE,
+		WHITE"       _,met$$$$$gg.       "CLOSE,
 		WHITE"    ,g$$$$$$$$$$$$$$$P.    "CLOSE,
 		WHITE"  ,g$$P\"     \"\"\"Y$$.\".     "CLOSE,
 		WHITE" ,$$P'              `$$$.  "CLOSE,

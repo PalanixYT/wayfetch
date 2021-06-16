@@ -213,7 +213,7 @@ int main() {
 		uname(&u);
 		sysinfo(&sys);
 		order();
-		spacing();
+		printf("\n");
 		int j = 0;
 		for(; j < ROWS && j < i; j++) {
 				printf(COLOR "%s   " CLOSE , logo[j]);
@@ -222,7 +222,7 @@ int main() {
 		if(ROWS == i) {
 		} else if( ROWS < i) {
 		for(; j < i; j++) {
-				printf("%s   ", logo[ROWS]);
+				printf("%s   ", lastline);
 				printf("%s\n", info[j]);
 		} }
 		else {
