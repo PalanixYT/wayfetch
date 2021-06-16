@@ -222,7 +222,7 @@ int main() {
 		if(ROWS == i) {
 		} else if( ROWS < i) {
 		for(; j < i; j++) {
-				printf("%s   ", lastline);
+				printf("%s   ", logo[ROWS]);
 				printf("%s\n", info[j]);
 		} }
 		else {
