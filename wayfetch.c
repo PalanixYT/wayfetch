@@ -205,6 +205,10 @@ void get_packages() {
     snprintf(info[i], 150, COLOR"Packages: "CLOSE"%d", num_packages);
 	i += 1;
 }
+void get_wm() {
+		snprintf(info[i], 150, COLOR"DE/WM: "CLOSE"%s", getenv("XDG_CURRENT_DESKTOP"));
+		i += 1;
+}
 int main() {
 		uname(&u);
 		sysinfo(&sys);

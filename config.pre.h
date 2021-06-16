@@ -1,7 +1,7 @@
 #include "logos/tux.h"
 //here you can define which logo wayfetch is going to use. See logos folder for available options
 #define PACDIR "/var/lib/pacman/local" // here are all packages incase of pacman
-#define ELEMENTS 18
+#define ELEMENTS 19
 //this is how many elements are to be printed in the info
 
 //usually color is defined by the logo
@@ -22,6 +22,7 @@ void order() {
 		get_shell();
 		get_term();
 		get_packages();
+		get_wm();
 		spacing();
 		spacing();
 		get_cpu();
