@@ -5,6 +5,7 @@
 #define NAMECOLOR COLOR
 //this is only needed when the name is supposed to be in a different color, like with kiss linux
 #define ROWS 19
+//ALWAYS, and I mean ALWAYS exclude the last line of the logo, see the end of the file for more info
 
 char *logo[] = {
 		"....",
