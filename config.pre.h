@@ -22,11 +22,19 @@ void order() {
 		os();
 		host();
 		kernel();
+                spacing();
+                spacing();
 		get_up();
 		get_shell();
 		get_term();
 		get_packages();
 		get_wm();
+                spacing();
+                spacing();
 		get_cpu();
 		get_memory();
+                spacing();
+                spacing();
+                get_colors();
+                get_colors2();
 }
