@@ -4,6 +4,12 @@
 #define ELEMENTS 19
 //this is how many elements are to be printed in the info
 
+// SEPARATOR is the string defined that wayfetch will print for every factor
+#define SEPARATOR ":" // Example: "OS: Parabola x86_64"
+// #define SEPARATOR "=>" // Example: "OS => Parabola x86_64"
+// #define SEPARATOR "->" // Example: "OS -> Parabola x86_64"
+// #define SEPARATOR "="  // Example: "OS = Parabola x86_64"
+
 //usually color is defined by the logo
 //#define COLOR
 // BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE
@@ -12,23 +18,23 @@
 //here comes the order of elements
 // info[0] and info[1] are reserved for the title and bar
 void order() {
-		hname();
-		os();
-		host();
-		kernel();
-		spacing();
-		spacing();
-		get_up();
-		get_shell();
-		get_term();
-		get_packages();
-		get_wm();
-		spacing();
-		spacing();
-		get_cpu();
-		get_memory();
-		spacing();
-		spacing();
-		get_colors();
-		get_colors2();
+				hname();
+				os();
+				host();
+				kernel();
+				spacing();
+				spacing();
+				get_up();
+				get_shell();
+				get_term();
+				get_packages();
+				get_wm();
+				spacing();
+				spacing();
+				get_cpu();
+				get_memory();
+				spacing();
+				spacing();
+				get_colors();
+				get_colors2();
 }
