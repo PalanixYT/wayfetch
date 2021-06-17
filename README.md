@@ -14,6 +14,29 @@ Displaying package count currently only works with Pacman
 Example:
 ![example output](logos/example.png)
 
+Available Logos
+------------
+- Tux
+- Big tux
+- Arch Linux
+- Artix Linux
+- Debian GNU/Linux
+- Devuan
+- Fedora GNU/Linux
+- Freebsd
+- Gentoo Linux
+- GNU Guix
+- Hyperbola GNU/Linux-libre
+- Parabola GNU/Linux-libre
+- Kiss
+- Manjaro Linux
+- Linux Mint
+- OpenSUSE
+- Pop\!_OS
+- Qubes OS
+- Redhat Linux
+- Trisquel GNU/Linux
+
 Configuration
 -------------
 
