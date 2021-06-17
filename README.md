@@ -23,7 +23,7 @@ Available Logos
 - Debian GNU/Linux
 - Devuan
 - Fedora GNU/Linux
-- Freebsd
+- FreeBSD
 - Gentoo Linux
 - GNU Guix
 - Hyperbola GNU/Linux-libre
