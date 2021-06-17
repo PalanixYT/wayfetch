@@ -3,7 +3,7 @@ wayfetch
 
 A neofetch rewrite that is still lacking some features
 
-I know that the way prefix is usually used for wayland programms.
+I know that the way prefix is usually used for wayland programs.
 
 Although I haven't ported over other logos yet, it is relatively easy to do so. 
 Just remember that every line should have equal length, otherwise it's going to mess up the printing. 
@@ -42,6 +42,11 @@ Configuration
 
 Wayfetch is configured using config.h. The first include defines which logo is used.
 The order function defines the order of the entries. Simply change the order of the entries
+
+Packages
+-----------
+
+- Currently available on the [Arch Linux AUR](https://aur.archlinux.org) as the "wayfetch-git" package.
 
 Performance
 -----------
