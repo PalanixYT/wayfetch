@@ -1,4 +1,4 @@
-#include "logos/parabola.h"
+#include "logos/tux.h"
 //here you can define which logo wayfetch is going to use. See logos folder for available options
 #define PACDIR "/var/lib/pacman/local" // here are all packages incase of pacman
 #define ELEMENTS 19
@@ -22,19 +22,11 @@ void order() {
 		os();
 		host();
 		kernel();
-		spacing();
-		spacing();
 		get_up();
 		get_shell();
 		get_term();
 		get_packages();
 		get_wm();
-		spacing();
-		spacing();
 		get_cpu();
 		get_memory();
-		spacing();
-		spacing();
-		get_colors();
-		get_colors2();
 }
