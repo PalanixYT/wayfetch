@@ -14,5 +14,5 @@ uninstall:
 config.h: | config.pre.h
 	cp config.pre.h $@
 
-wayfetch: wayfetch.c config.h
-	gcc -o wayfetch wayfetch.c
+wayfetch: main.c config.h
+	gcc -o wayfetch main.c
