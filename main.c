@@ -21,7 +21,7 @@ void os() {
 		FILE *os = fopen("/etc/os-release","r");
 		char buffer[150];
 		fscanf(os, "NAME=\"%[^\"]+", buffer);
-		snprintf(info[i], 149, COLOR"OS: "CLOSE"%s %s", buffer, u.machine);
+		snprintf(info[i], 149, COLOR"OS"SEPARATOR""CLOSE"%s %s", buffer, u.machine);
 		fclose(os);
 		i += 1;
 }
@@ -30,7 +30,7 @@ void host() {
 		FILE *host = fopen("/sys/devices/virtual/dmi/id/product_name", "r");
 		char buffer[150];
 		fscanf(host, "%s", buffer);
-		snprintf( info[i], 149, COLOR"Host: "CLOSE"%s", buffer);
+		snprintf( info[i], 149, COLOR"Host"SEPARATOR""CLOSE"%s", buffer);
 		fclose(host);
 }
 
@@ -46,22 +46,22 @@ void hname() {
 }
 
 void kernel() {
-		snprintf(info[i], 149, COLOR"Kernel: "CLOSE"%s", u.release);
+		snprintf(info[i], 149, COLOR"Kernel"SEPARATOR""CLOSE"%s", u.release);
 		i += 1;
 }
 
 void get_up() {
 		float mins = sys.uptime / 60;
 		if((int) (mins / 60) == 0) {
-				snprintf(info[i], 149, COLOR"Uptime: "CLOSE"%d mins", (int)mins % 60);
+				snprintf(info[i], 149, COLOR"Uptime"SEPARATOR""CLOSE"%d mins", (int)mins % 60);
 		} else {
-		snprintf(info[i], 149, COLOR"Uptime: "CLOSE"%d hours, %d mins", (int)(mins / 60), (int)mins % 60);
+		snprintf(info[i], 149, COLOR"Uptime"SEPARATOR""CLOSE"%d hours, %d mins", (int)(mins / 60), (int)mins % 60);
 		}
 		i += 1;
 }
 
 void get_shell() {
-		snprintf(info[i], 149, COLOR"Shell: "CLOSE"%s", strrchr(getenv("SHELL"), '/') + 1);
+		snprintf(info[i], 149, COLOR"Shell"SEPARATOR""CLOSE"%s", strrchr(getenv("SHELL"), '/') + 1);
 		i += 1;
 }
 
@@ -71,7 +71,7 @@ void spacing() {
 }
 
 void get_term() {
-		snprintf(info[i], 149, COLOR"Terminal: "CLOSE"%s", getenv("TERM"));
+		snprintf(info[i], 149, COLOR"Terminal"SEPARATOR""CLOSE"%s", getenv("TERM"));
 		i += 1;
 }
 
@@ -130,7 +130,7 @@ cpufreq_fallback:
 
 
 
-		snprintf(info[i], 150, COLOR"CPU: "CLOSE"%s (%d) @ %.*f%s", cpu_model, num_cores, prec, freq, freq_unit);
+		snprintf(info[i], 150, COLOR"CPU"SEPARATOR""CLOSE"%s (%d) @ %.*f%s", cpu_model, num_cores, prec, freq, freq_unit);
     free(cpu_model);
 	i += 1;
 }
@@ -159,7 +159,7 @@ void get_memory() {
 		total_memory = total / 1024;
 		int percentage = (int) (100 * (used_memory / (double) total_memory));
 
-		snprintf( info[i], 149, COLOR"Memory: "CLOSE"%dMiB / %dMiB (%d%%)", used_memory, total_memory, percentage);
+		snprintf( info[i], 149, COLOR"Memory"SEPARATOR""CLOSE"%dMiB / %dMiB (%d%%)", used_memory, total_memory, percentage);
 		i += 1;
 
 }
@@ -202,11 +202,11 @@ void get_packages() {
 
     closedir(dirp);
 
-    snprintf(info[i], 150, COLOR"Packages: "CLOSE"%d", num_packages);
+    snprintf(info[i], 150, COLOR"Packages"SEPARATOR""CLOSE"%d", num_packages);
 	i += 1;
 }
 void get_wm() {
-		snprintf(info[i], 150, COLOR"DE/WM: "CLOSE"%s", getenv("XDG_CURRENT_DESKTOP"));
+		snprintf(info[i], 150, COLOR"DE/WM"SEPARATOR""CLOSE"%s", getenv("XDG_CURRENT_DESKTOP"));
 		i += 1;
 }
 int main() {
