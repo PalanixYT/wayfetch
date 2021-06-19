@@ -13,6 +13,8 @@ Displaying package count currently only works with Pacman
 
 Example:
 ![example output](logos/example.png)
+
+Another example:
 ![example 2](logos/example2.png)
 
 Available Logos
