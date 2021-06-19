@@ -1,22 +1,22 @@
 #include "../color.h"
-#define COLOR WHITE
+#define COLOR RED
 #define ROWS 15
 char *logo[] = {
-    "```                        "RED"`"CLOSE"    ",
-    "  ` `.....---..."RED"....--.```   -/ "CLOSE"",
-    "  +o   .--`         "RED"/y:`      +."CLOSE"",
-    "   yo`:.            "RED":o      `+- "CLOSE"",
-    "    y/               "RED"-/`   -o/  "CLOSE"",
-    "   .-                  "RED"::/sy+:. "CLOSE"",
-    "   /                     "RED"`--  / "CLOSE"",
-    "  `:                          "RED":`"CLOSE"",
-    "  `:                          "RED":`"CLOSE"",
-    "   /                          "RED"/ "CLOSE"",
-    "   .-                        "RED"-. "CLOSE"",
-    "    --                      "RED"-.  "CLOSE"",
-    "     `:`                  "RED"`:`   "CLOSE"",
-    "       "RED".--             `--.     "CLOSE"",
-    "          "RED".---.....----.        "CLOSE"",
+    WHITE"```                        "RED"`"CLOSE"    ",
+    WHITE"  ` `.....---..."RED"....--.```   -/ "CLOSE"",
+    WHITE"  +o   .--`         "RED"/y:`      +."CLOSE"",
+    WHITE"   yo`:.            "RED":o      `+- "CLOSE"",
+    WHITE"    y/               "RED"-/`   -o/  "CLOSE"",
+    WHITE"   .-                  "RED"::/sy+:. "CLOSE"",
+    WHITE"   /                     "RED"`--  / "CLOSE"",
+    WHITE"  `:                          "RED":`"CLOSE"",
+    WHITE"  `:                          "RED":`"CLOSE"",
+    WHITE"   /                          "RED"/ "CLOSE"",
+    WHITE"   .-                        "RED"-. "CLOSE"",
+    WHITE"    --                      "RED"-.  "CLOSE"",
+    WHITE"     `:`                  "RED"`:`   "CLOSE"",
+    WHITE"       "RED".--             `--.     "CLOSE"",
+    WHITE"          "RED".---.....----.        "CLOSE"",
     "                                ",
 };
 //IMPORTANT: Always make the lines the same length. There shouldn't be any extra spaces, as they are added later on by the programm itself
