@@ -1,5 +1,5 @@
 #include "../color.h"
-#define COLOR "\e[1;90m"
+#define COLOR GREY
 #define NAMECOLOR WHITE
 #define ROWS 16
 char *logo[] = {
