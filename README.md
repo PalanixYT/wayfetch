@@ -3,13 +3,7 @@ wayfetch
 
 A neofetch rewrite that is still lacking some features
 
-I know that the way prefix is usually used for wayland programms.
-
-Although I haven't ported over other logos yet, it is relatively easy to do so. 
-Just remember that every line should have equal length, otherwise it's going to mess up the printing. 
-Multicolor Logos are a bit harder to do, see mint.h as an example. It's best to start with a normal no color Logo and then add the coloring, to preserver spacing
-
-Displaying package count currently only works with Pacman
+The "way" prefix has nothing to do with Wayland
 
 Example:
 ![example output](logos/example.png)
@@ -38,6 +32,8 @@ Available Logos
 - Qubes OS
 - Redhat Linux
 - Trisquel GNU/Linux
+
+Although not every logo of every distro/OS is ported, it is relatively easy to do so, even with 0 programming experience. If you need a ported logo, you can do it by yourself and we'll gladly accept it (see Contributing Logos at the bottom)
 
 Configuration
 -------------
@@ -74,5 +70,15 @@ Benchmark #1: wayfetch
   Time (mean _ _):       3.2 ms _   2.3 ms    [User: 0.9 ms, System: 3.0 ms]
   Range (min _ max):     1.3 ms _  17.8 ms    155 runs
 ```
+
+Contributing Logos
+------------------
+- Every line should have equal length, otherwise it's going to mess up the printing. 
+- Every logo should have an extra "blank" row full of spaces.
+- Modify "#define ROWS n" to rows of the logo without counting the last "blank" row.
+- Multicolor Logos are a bit harder to do, see mint.h as an example. It's best to start with a normal no color logo and then add the coloring, to preserver spacing.
+- Name files as OS or distro. For example: Linux Mint -> "mint.h", Parabola GNU/Linux-libre -> "parabola.h".
+
+Displaying package count currently only works with Pacman.
 
 Criticism is encouraged. 
