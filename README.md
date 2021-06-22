@@ -43,6 +43,18 @@ Configuration
 
 Wayfetch is configured using config.h. The first include defines which logo is used.
 The order function defines the order of the entries. Simply change the order of the entries
+```
+$ time -p wayfetch &>/dev/null
+real 0.01
+user 0.00
+sys 0.00
+```
+```
+$ time -p neofetch &>/dev/null
+real 0.53
+user 0.28
+sys 0.27
+```
 
 Performance
 -----------
