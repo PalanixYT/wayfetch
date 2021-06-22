@@ -1,0 +1,49 @@
+#!/bin/sh
+
+printUsage() {
+        echo "Usage: autoconfig <distro name> <separator>"
+        printf "Distros:\n%s\n" "$(/bin/ls -1 logos | cut -d"." -f1 | tr " " "\n")"
+        printf "Separators: Use any character (wayfetch only includes a space *after* the separator not before)"
+}
+
+configDistro() {
+        logos="$(/bin/ls -1 logos | cut -d"." -f1 | tr " " "\n")"
+        printf "%s\n" "$logos" | grep "$1" && sed -i "s/logos\/tux.h/logos\/$1.h/g" config.pre.h || exit 1
+}
+
+configSeparator() {
+        sed -i "s/#define SEPARATOR \":\"/#define SEPARATOR \"$1\"/g" config.pre.h || exit 1
+}
+
+compile() {
+        rm config.h
+        sudo make install || exit 1
+        command -v wayfetch
+        make clean
+}
+
+options() {
+        if test -z "$1"; then
+                echo "Error: No distro"
+                exit 1
+        else
+                if test "$1" = "-h" || test "$1" = "--help"; then
+                        printUsage
+                        exit 0
+                fi
+                configDistro "$1"
+                if test -n "$2"; then
+                        configSeparator "$2" 
+                        compile
+                        exit 0
+                else
+                        echo "Error: No separator"
+                fi
+        fi
+}
+
+main() {
+        options "$@"
+}
+
+main "$@"
