@@ -44,6 +44,12 @@ Configuration
 
 Wayfetch is configured using config.h. The first include defines which logo is used.
 The order function defines the order of the entries. Simply change the order of the entries
+
+Performance
+-----------
+
+Using hyperfine neofetch uses 140ms and wayfetch 1ms
+
 ```
 $ time -p wayfetch &>/dev/null
 real 0.01
@@ -56,11 +62,5 @@ real 0.53
 user 0.28
 sys 0.27
 ```
-
-Performance
------------
-
-Using hyperfine neofetch uses 140ms and wayfetch 1ms
-
 
 Criticism is encouraged. 
