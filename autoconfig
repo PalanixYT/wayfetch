@@ -3,7 +3,7 @@
 printUsage() {
         echo "Usage: autoconfig <distro name> <separator>"
         printf "Distros:\n%s\n" "$(/bin/ls -1 logos | cut -d"." -f1 | tr " " "\n")"
-        printf "Separators: Use any character (wayfetch only includes a space *after* the separator not before)"
+        echo "Separators: Use any character (wayfetch only includes a space *after* the separator not before)"
 }
 
 configDistro() {
