@@ -62,5 +62,17 @@ real 0.53
 user 0.28
 sys 0.27
 ```
+```
+hyperfine "neofetch --config none"
+Benchmark #1: neofetch --config none
+  Time (mean _ _):     368.7 ms _  13.7 ms    [User: 202.7 ms, System: 172.0 ms]
+  Range (min _ max):   344.3 ms _ 387.7 ms    10 runs
+```
+```
+hyperfine "wayfetch"
+Benchmark #1: wayfetch
+  Time (mean _ _):       3.2 ms _   2.3 ms    [User: 0.9 ms, System: 3.0 ms]
+  Range (min _ max):     1.3 ms _  17.8 ms    155 runs
+```
 
 Criticism is encouraged. 
