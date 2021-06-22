@@ -7,9 +7,9 @@
 #define ROWS 17
 
 char *logo[] = {
-		"          /:-------------:\       ",
+		"          /:-------------:\\       ",
 		"       :-------------------::     ",
-		"     :-----------"WHITE"/shhOHbmp"BLUE"---:\   ",
+		"     :-----------"WHITE"/shhOHbmp"BLUE"---:\\   ",
 		"   /-----------"WHITE"omMMMNNNMMD"CLOSE"  "BLUE"---:  ",
 		"  :-----------"WHITE"sMMMMNMNMP."CLOSE"    "BLUE"---: ",
 		" :-----------"WHITE":MMMdP"BLUE"-------    ---\\",
