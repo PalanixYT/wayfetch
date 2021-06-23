@@ -41,6 +41,8 @@ Configuration
 Wayfetch is configured using config.h. The first include defines which logo is used.
 The order function defines the order of the entries. Simply change the order of the entries
 
+Instead you can also use the Autoconfigure script
+
 Performance
 -----------
 
