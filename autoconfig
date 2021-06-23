@@ -1,0 +1,59 @@
+#!/bin/sh
+
+printUsage() {
+        echo "Usage: autoconfig <distro name> <separator> <colors=[yes/no]>"
+        printf "Distros:\n%s\n" "$(/bin/ls -1 logos | grep ".h" | cut -d"." -f1 | tr " " "\n")"
+        echo "Separators: Use any character (wayfetch only includes a space *after* the separator not before)"
+        echo "Colors: colors=yes --> will display color blocks"
+        echo "        colors=no  --> won't display color blocks"
+}
+
+configDistro() {
+        logos="$(/bin/ls -1 logos | grep ".h" | cut -d"." -f1 | tr " " "\n")"
+        printf "%s\n" "$logos" | grep "$1" 2>/dev/null 1>&2 && sed -i "s/logos\/tux.h/logos\/$1.h/g" config.pre.h || exit 1
+}
+
+configSeparator() {
+        sed -i "s/#define SEPARATOR \":\"/#define SEPARATOR \"$1\"/g" config.pre.h || exit 1
+}
+
+configColors() {
+        if test "$1" = "colors=no"; then
+                sed -i "s/get_colors();//g" config.pre.h
+                sed -i "s/get_colors2();//g" config.pre.h
+        fi
+}
+
+compile() {
+        rm config.h
+        sudo make install || exit 1
+        command -v wayfetch
+        make clean
+}
+
+tell() {
+        echo "Don't try to run this script again! Only after running \"git restore config.pre.h\""
+}
+
+options() {
+        if test -z "$1"; then
+                printUsage
+                exit 1
+        else
+                if test "$1" = "-h" || test "$1" = "--help"; then
+                        printUsage
+                        exit 0
+                fi
+                configDistro "$1"
+                configSeparator "$2" 
+                configColors "$3"
+                compile
+                tell
+        fi
+}
+
+main() {
+        options "$@"
+}
+
+main "$@"
