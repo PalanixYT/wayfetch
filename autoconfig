@@ -1,7 +1,7 @@
 #!/bin/sh
 
 printUsage() {
-        echo "Usage: autoconfig <distro name> <separator> <colors=[yes/no]>"
+        echo "Usage: autoconfig <distro name> <separator> <colors=[yes/no]> <spacing=[yes/no]>"
         printf "Distros:\n%s\n" "$(/bin/ls -1 logos | grep ".h" | cut -d"." -f1 | tr " " "\n")"
         echo "Separators: Use any character (wayfetch only includes a space *after* the separator not before)"
         echo "Colors: colors=yes --> will display color blocks"
@@ -24,6 +24,12 @@ configColors() {
         fi
 }
 
+configSpacing() {
+        if test "$1" = "spacing=no"; then
+                sed -i "s/spacing();//g" config.pre.h
+        fi
+}
+
 compile() {
         rm config.h
         sudo make install || exit 1
@@ -33,6 +39,12 @@ compile() {
 
 tell() {
         echo "Don't try to run this script again! Only after running \"git restore config.pre.h\""
+        printf "Run \"git restore config.pre.h\"? Y/n "
+        read -r yorn
+        if test -z "$yorn" || test "$yorn" = "y" || test "$yorn" = "Y"; then
+                echo "$ git restore config.pre.h"
+                git restore config.pre.h
+        fi
 }
 
 options() {
@@ -47,6 +59,7 @@ options() {
                 configDistro "$1"
                 configSeparator "$2" 
                 configColors "$3"
+                configSpacing "$4"
                 compile
                 tell
         fi
