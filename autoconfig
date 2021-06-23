@@ -39,7 +39,7 @@ compile() {
 
 tell() {
         echo "Don't try to run this script again! Only after running \"git restore config.pre.h\""
-        printf "Run \"git restore config.pre.h\"? Y/n "
+        printf "Run \"git restore config.pre.h\"? [Y/n] "
         read -r yorn
         if test -z "$yorn" || test "$yorn" = "y" || test "$yorn" = "Y"; then
                 echo "$ git restore config.pre.h"
