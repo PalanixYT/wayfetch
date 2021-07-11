@@ -193,7 +193,7 @@ void get_packages() {
 
     if(dirp == NULL) {
 		printf("dir doesn't exist");
-    }
+    } else {
 
     while((entry = readdir(dirp)) != NULL) {
         if(entry->d_type == DT_DIR) num_packages++;
@@ -204,6 +204,7 @@ void get_packages() {
 
     snprintf(info[i], 150, COLOR"Packages"SEPARATOR" "CLOSE"%d", num_packages);
 	i += 1;
+	}
 }
 void get_wm() {
 		snprintf(info[i], 150, COLOR"DE/WM"SEPARATOR" "CLOSE"%s", getenv("XDG_CURRENT_DESKTOP"));

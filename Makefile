@@ -9,8 +9,6 @@ install: wayfetch
 uninstall:
 	rm -f /bin/wayfetch
 
-.PHONY: all clean install uninstall
-
 config.h: | config.pre.h
 	cp config.pre.h $@
 
