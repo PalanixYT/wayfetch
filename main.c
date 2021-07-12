@@ -32,6 +32,7 @@ void host() {
 		fscanf(host, "%s", buffer);
 		snprintf( info[i], 149, COLOR"Host"SEPARATOR" "CLOSE"%s", buffer);
 		fclose(host);
+		i += 1;
 }
 
 void hname() {
