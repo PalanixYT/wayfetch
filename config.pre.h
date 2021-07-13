@@ -15,24 +15,26 @@
 //here comes the order of elements
 void order() {
 				hname();
-				os();
-				host();
-				kernel();
+				os("OS");
+				host("Host");
+				kernel("Kernel");
 				spacing();
 				spacing();
-				get_up();
-				get_shell();
-				get_term();
-				get_packages();
-				get_wm();
+				get_up("Uptime");
+				get_shell("Shell");
+				get_term("Terminal");
+				get_packages("Packages");
+				get_wm("DE/WM");
 				spacing();
 				spacing();
-				get_cpu();
-				get_memory();
+				get_cpu("CPU");
+				get_memory("Memory");
 				spacing();
 				spacing();
 				get_colors();
 				get_colors2();
+
+//				customPrint("preprint", "message");
 }
 
 
