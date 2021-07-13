@@ -21,7 +21,7 @@ void os(char preprint[]) {
 		FILE *os = fopen("/etc/os-release","r");
 		char buffer[150];
 		fscanf(os, "NAME=\"%[^\"]+", buffer);
-		snprintf(info[i], 149, COLOR"%s"SEPARATOR" "CLOSE"%s %s", preprint, buffer, u.machine);
+		snprintf(info[i], 149, COLOR"%s "CLOSE"%s %s", preprint, buffer, u.machine);
 		fclose(os);
 		i += 1;
 }
@@ -30,7 +30,7 @@ void host(char preprint[]) {
 		FILE *host = fopen("/sys/devices/virtual/dmi/id/product_name", "r");
 		char buffer[150];
 		fscanf(host, "%s", buffer);
-		snprintf( info[i], 149, COLOR"%s"SEPARATOR" "CLOSE"%s", preprint, buffer);
+		snprintf( info[i], 149, COLOR"%s "CLOSE"%s", preprint, buffer);
 		fclose(host);
 		i += 1;
 }
@@ -47,22 +47,22 @@ void hname() {
 }
 
 void kernel( char preprint[]) {
-		snprintf(info[i], 149, COLOR"%s"SEPARATOR" "CLOSE"%s", preprint, u.release);
+		snprintf(info[i], 149, COLOR"%s "CLOSE"%s", preprint, u.release);
 		i += 1;
 }
 
 void get_up(char preprint[]) {
 		float mins = sys.uptime / 60;
 		if((int) (mins / 60) == 0) {
-				snprintf(info[i], 149, COLOR"%s"SEPARATOR" "CLOSE"%d mins", preprint,(int)mins % 60);
+				snprintf(info[i], 149, COLOR"%s "CLOSE"%d mins", preprint,(int)mins % 60);
 		} else {
-		snprintf(info[i], 149, COLOR"%s"SEPARATOR" "CLOSE"%d hours, %d mins",preprint, (int)(mins / 60), (int)mins % 60);
+		snprintf(info[i], 149, COLOR"%s "CLOSE"%d hours, %d mins",preprint, (int)(mins / 60), (int)mins % 60);
 		}
 		i += 1;
 }
 
 void get_shell(char preprint[]) {
-		snprintf(info[i], 149, COLOR"%s"SEPARATOR" "CLOSE"%s",preprint, strrchr(getenv("SHELL"), '/') + 1);
+		snprintf(info[i], 149, COLOR"%s "CLOSE"%s",preprint, strrchr(getenv("SHELL"), '/') + 1);
 		i += 1;
 }
 
@@ -72,7 +72,7 @@ void spacing() {
 }
 
 void get_term(char preprint[]) {
-		snprintf(info[i], 149, COLOR"%s"SEPARATOR" "CLOSE"%s",preprint, getenv("TERM"));
+		snprintf(info[i], 149, COLOR"%s "CLOSE"%s",preprint, getenv("TERM"));
 		i += 1;
 }
 
@@ -131,7 +131,7 @@ cpufreq_fallback:
 
 
 
-		snprintf(info[i], 150, COLOR"%s"SEPARATOR" "CLOSE"%s (%d) @ %.*f%s", preprint,cpu_model, num_cores, prec, freq, freq_unit);
+		snprintf(info[i], 150, COLOR"%s "CLOSE"%s (%d) @ %.*f%s", preprint,cpu_model, num_cores, prec, freq, freq_unit);
     free(cpu_model);
 	i += 1;
 }
@@ -160,7 +160,7 @@ void get_memory(char preprint[]) {
 		total_memory = total / 1024;
 		int percentage = (int) (100 * (used_memory / (double) total_memory));
 
-		snprintf( info[i], 149, COLOR"%s"SEPARATOR" "CLOSE"%dMiB / %dMiB (%d%%)", preprint, used_memory, total_memory, percentage);
+		snprintf( info[i], 149, COLOR"%s "CLOSE"%dMiB / %dMiB (%d%%)", preprint, used_memory, total_memory, percentage);
 		i += 1;
 
 }
@@ -203,17 +203,17 @@ void get_packages(char preprint[]) {
 
     closedir(dirp);
 
-    snprintf(info[i], 150, COLOR"%s"SEPARATOR" "CLOSE"%d",preprint, num_packages);
+    snprintf(info[i], 150, COLOR"%s "CLOSE"%d",preprint, num_packages);
 	i += 1;
 	}
 }
 void get_wm(char preprint[]) {
-		snprintf(info[i], 150, COLOR"%s"SEPARATOR" "CLOSE"%s", preprint,getenv("XDG_CURRENT_DESKTOP"));
+		snprintf(info[i], 150, COLOR"%s "CLOSE"%s", preprint,getenv("XDG_CURRENT_DESKTOP"));
 		i += 1;
 }
 
 void customPrint(char preprint[], char message[]) {
-		snprintf(info[i], 150, COLOR"%s"SEPARATOR" "CLOSE"%s", preprint, message);
+		snprintf(info[i], 150, COLOR"%s "CLOSE"%s", preprint, message);
 		i += 1;
 }
 

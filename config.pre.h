@@ -15,20 +15,20 @@
 //here comes the order of elements
 void order() {
 				hname();
-				os("OS");
-				host("Host");
-				kernel("Kernel");
+				os("OS"SEPARATOR);
+				host("Host"SEPARATOR);
+				kernel("Kernel"SEPARATOR);
 				spacing();
 				spacing();
-				get_up("Uptime");
-				get_shell("Shell");
-				get_term("Terminal");
-				get_packages("Packages");
-				get_wm("DE/WM");
+				get_up("Uptime"SEPARATOR);
+				get_shell("Shell"SEPARATOR);
+				get_term("Terminal"SEPARATOR);
+				get_packages("Packages"SEPARATOR);
+				get_wm("DE/WM"SEPARATOR);
 				spacing();
 				spacing();
-				get_cpu("CPU");
-				get_memory("Memory");
+				get_cpu("CPU"SEPARATOR);
+				get_memory("Memory"SEPARATOR);
 				spacing();
 				spacing();
 				get_colors();
