@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <sys/utsname.h>
 #include <sys/sysinfo.h>
-#include <string.h>
 #include <stdlib.h>
 #define COLOR CYAN
 #define NAMECOLOR COLOR
